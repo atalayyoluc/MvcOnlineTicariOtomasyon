@@ -1,0 +1,66 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 class="card-header mt-3">Faturalar </h5>
+
+<table class="table table-bordered" id="Table" width="100%" collspacing="0">
+    <thead>
+        <tr>
+      
+            <th>SeriNo</th>
+            <th>SıraNo</th>
+            <th>VergiDairesi</th>
+            <th>Tarih</th>
+            <th>Saat</th>
+            <th>Teslim Eden</th>
+            <th>Teslim Alan</th>
+             <th>Toplam</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody class="table-border-bottom-0">
+
+        @foreach (var item in Model)
+        {
+            <tr name="@item.FaturaID">
+               
+                <td>@item.FaturaSeriNo</td>
+                <td>@item.FaturaSıraNo</td>
+                <td>@item.VergiDairesi</td>
+                <td>@item.Tarih.ToString("dd/MM/yyyy")</td>
+                <td>@item.Saat</td>
+                <td>@item.TeslimEden</td>
+                <td>@item.TeslimAlan</td>
+                <td>@item.ToplamTutar</td>
+                <td>
+                    <a href="/Fatura/FaturaGetir/@item.FaturaID" class="btn btn-info btn-sm"><i class="bx bxs-edit"></i></a>
+                    <a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-primary">Detaylar</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Fatura/FaturaEkle" class="btn btn-primary">Fatura Oluştur</a>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+$('#Table').dataTable({});
+
+</script>

@@ -1,0 +1,82 @@
+﻿
+@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Yapilacaklar>
+@{
+
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <!-- Daterange picker -->
+    <!-- summernote -->
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+
+
+
+
+<!-- /.card-header -->
+<div class="card-body">
+    <ul class="todo-list ui-sortable" data-widget="todo-list">
+        @{ int sayi5 = 0;}
+        @foreach (var item in Model)
+        {
+            <li>
+                <!-- drag handle -->
+                <span class="handle ui-sortable-handle">
+                    <i class="fas fa-ellipsis-v"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </span>
+                <!-- checkbox -->
+                <div class="icheck-primary d-inline ml-2">
+                    @{sayi5++;}
+                    <input type="checkbox" value="@sayi5" name="todo1" id=@sayi5>
+                    <label for=@sayi5></label>
+                </div>
+                <!-- todo text -->
+                <span class="text">@item.Baslik</span>
+                <!-- Emphasis label -->
+                <!-- General tools such as edit or delete-->
+                <div class="tools">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash-o"></i>
+                </div>
+            </li>
+        }
+
+    </ul>
+</div>
+<!-- /.card-body -->
+<div class="card-footer clearfix">
+    <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Yeni Not Ekle</button>
+</div>
+
+
+
+
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="~/AdminLTE-3.0.4/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<script src="~/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- AdminLTE for demo purposes -->

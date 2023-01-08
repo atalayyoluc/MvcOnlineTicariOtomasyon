@@ -1,0 +1,43 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Personel
+
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+
+
+
+<h5 class="card-header mt-3">Personel Güncelleme </h5>
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.PersonelID)
+    @Html.LabelFor(x => x.PersonelAd)
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    @Html.LabelFor(x => x.PersonelSoyad)
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    @Html.LabelFor(x => x.PersonelGorsel)
+    @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Departman)
+    @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.departman, new { @class = "form-control" })
+    @Html.LabelFor(x => x.TelefonNumarası)
+    @Html.TextBoxFor(x => x.TelefonNumarası, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Adress)
+    @Html.TextBoxFor(x => x.Adress, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Hakkında)
+    @Html.TextAreaFor(x => x.Hakkında, new { @class = "form-control" })
+
+
+
+    <button class="btn btn-outline-dark">Personel Güncelle</button>
+
+
+
+
+
+}
+
+
